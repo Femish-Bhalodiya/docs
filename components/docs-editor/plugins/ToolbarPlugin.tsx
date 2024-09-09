@@ -75,8 +75,10 @@ function FontDropDown({
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        {FONT_FAMILY_OPTIONS.map(([option, text]) => (
-          <SelectItem value={option}>{text}</SelectItem>
+        {FONT_FAMILY_OPTIONS.map(([option, text], index) => (
+          <SelectItem key={index} value={option}>
+            {text}
+          </SelectItem>
         ))}
       </SelectContent>
     </Select>
