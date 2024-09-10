@@ -10,10 +10,10 @@ const Collaborator = ({ roomId, email, collaborator, creatorId, user }: Collabor
   const [userType, setUserType] = useState(collaborator.userType || 'viewer');
   const [loading, setLoading] = useState(false);
 
-  const shareDocumentHandler = async (type: string) => {
+  const shareDocumentHandler = async (type: UserType) => {
     setLoading(true);
     try {
-      await updateDocAccess({ roomId, email, userType, updatedBy: user });
+      await updateDocAccess({ roomId, email, userType: type, updatedBy: user });
       toast.success('Useraccess Updated Successfully!');
     } catch (error) {
       toast.error('Failed to Update Useraccess');
